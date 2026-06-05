@@ -1,3 +1,6 @@
+# autoresearch run output — never commit
+run.log
+
 # weights and biases
 .wandb/ 
 wandb_api_key.txt
