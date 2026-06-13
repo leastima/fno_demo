@@ -74,7 +74,7 @@ Set `data_root` in `configs/train_config.yaml` to the directory containing both 
 ## File Structure
 
 ```
-kenxzk_fno/
+fno_demo/
 ├── prepare.py               # Frozen evaluation harness (do not modify)
 ├── train.py                 # Mutable training script (AutoResearch modifies this)
 ├── configs/
