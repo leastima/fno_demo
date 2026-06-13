@@ -1,0 +1,36 @@
+# AutoResearch config: paper-exact Darcy 421x421, 50 epochs budget
+# Data: GRF-generated, a(x) in {3,12}, FD solver on 421x421 grid
+
+config_name: autoresearch_421
+task: darcy_flow
+model: FNO
+
+seed: 42
+
+train_samples: 1000
+test_samples: 200
+
+epochs: 50
+batch_size: 20
+
+# FNO paper 2D settings (Li et al. 2020, Table 4, s=421)
+n_modes: [12, 12]
+hidden_channels: 32
+n_layers: 4
+in_channels: 1
+out_channels: 1
+
+optimizer: Adam
+lr: 0.001
+weight_decay: 0.0
+
+scheduler: StepLR
+step_size: 100
+gamma: 0.5
+
+primary_metric: test_l2re
+loss: relative_l2
+
+resolution: 421
+data_root: /jumbo/yaoqingyang/batman/data/darcy_paper_exact
+encode_output: false

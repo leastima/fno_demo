@@ -1,0 +1,27 @@
+# AutoResearch config — FNO Darcy-2D (original paper setup)
+# Data: official piececonst_r421_N1024_smooth{1,2}.mat, downsampled r=5 → 85×85
+# FROZEN fields (do not change): data_root, train_samples, test_samples
+
+config_name: autoresearch_fno_darcy
+task: darcy_flow
+
+data_root: /jumbo/yaoqingyang/batman/data/darcy_official
+
+train_samples: 1000
+test_samples: 100
+batch_size: 20
+
+epochs: 200
+seed: 0
+
+# FNO paper 2D baseline (Table 4): modes=12, width=32, 4 layers
+# Increased modes to [16, 16] for better frequency resolution
+# Increased hidden channels to 64 for more capacity
+n_modes: [16, 16]
+hidden_channels: 64
+
+optimizer: Adam
+lr: 0.001
+weight_decay: 0.0001
+
+scheduler: CosineAnnealingLR
